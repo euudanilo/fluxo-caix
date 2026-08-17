@@ -3,6 +3,7 @@ package com.danilo.fluxocaixa.exception;
 import com.danilo.fluxocaixa.service.ClienteNaoEncontradoException;
 import com.danilo.fluxocaixa.service.DocumentoJaCadastradoException;
 import com.danilo.fluxocaixa.service.LancamentoNaoEncontradoException;
+import com.danilo.fluxocaixa.service.PeriodoInvalidoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -40,5 +41,11 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ErrorResponse.of(400, "Dados invalidos", "Um ou mais campos estao invalidos", detalhes));
+    }
+
+    @ExceptionHandler(PeriodoInvalidoException.class)
+    public ResponseEntity<ErrorResponse> handlePeriodoInvalido(PeriodoInvalidoException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResponse.of(400, "Periodo invalido", ex.getMessage()));
     }
 }
