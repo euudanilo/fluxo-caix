@@ -69,6 +69,10 @@ public abstract class LancamentoFinanceiro {
         this.dataVencimento = dataVencimento;
     }
 
+    /**
+     * Calcula o valor atualizado do lancamento, aplicando multa fixa + juros de mora
+     * proporcional aos dias de atraso, caso a data de referencia seja posterior ao vencimento.
+     */
     public BigDecimal calcularValorAtualizado(LocalDate dataReferencia) {
         if (!dataReferencia.isAfter(dataVencimento)) {
             return valorOriginal;
@@ -104,6 +108,7 @@ public abstract class LancamentoFinanceiro {
 
     public abstract TipoLancamento getTipo();
 
+    // Getters
     public Long getId() {
         return id;
     }
