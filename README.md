@@ -1,4 +1,4 @@
-# Fluxo Caixa
+# CashFlow Tracker
 
 Sistema de controle de fluxo de caixa e cobrança recorrente, desenvolvido com Java e Spring Boot. Projetado para resolver um problema real de pequenas e médias empresas: falta de visibilidade sobre o caixa futuro, o que causa tanto ruptura de caixa (não sobra dinheiro para pagar contas) quanto decisões financeiras tomadas "no escuro".
 
@@ -108,14 +108,16 @@ curl "http://localhost:8080/api/projecao-caixa?dataInicio=2026-09-01&dataFim=202
 
 ## Estrutura do projeto
 
+```
 src/main/java/com/danilo/fluxocaixa/
-├── domain/ # Entidades JPA e regras de negocio (Cliente, LancamentoFinanceiro, etc)
-├── repository/ # Interfaces Spring Data JPA
-├── service/ # Regras de negocio e orquestracao
-├── controller/ # Endpoints REST
-├── dto/ # Objetos de transferencia (request/response)
-├── exception/ # Tratamento global de excecoes
-└── job/ # Tarefas agendadas
+├── domain/          # Entidades JPA e regras de negocio (Cliente, LancamentoFinanceiro, etc)
+├── repository/       # Interfaces Spring Data JPA
+├── service/          # Regras de negocio e orquestracao
+├── controller/        # Endpoints REST
+├── dto/              # Objetos de transferencia (request/response)
+├── exception/         # Tratamento global de excecoes
+└── job/              # Tarefas agendadas
+```
 
 ## Histórico de desenvolvimento
 
